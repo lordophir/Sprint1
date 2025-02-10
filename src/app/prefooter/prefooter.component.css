@@ -1,0 +1,35 @@
+.prefooter-title {
+    height: 7em;
+    text-align: center;
+    padding: 30px;
+    background-color: #F5F5F5;
+}
+
+#prefooter-container {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    padding: 30px;
+    gap: 50px;
+    height: 45vh;
+    background-color: #F5F5F5;
+}
+
+.prefooter-card h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1em;
+}
+
+.prefooter-card h3 {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 3em;
+}
+
+.prefooter-card a {
+    line-height: 3em;
+    color: black;
+    font-weight: bold;
+}

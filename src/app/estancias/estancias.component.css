@@ -1,0 +1,82 @@
+#datos-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+    height: 35vh;
+    width: 100%;
+}
+
+.datos-alojamientos h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.datos-alojamientos h3{
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.datos-alojamientos ul{
+    list-style: none;
+    padding: 0;
+}
+
+.datos-alojamientos li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.datos-alojamientos li i{
+    font-size: 18px;
+}
+
+.estancias-title{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    height: 10px;
+    padding-bottom: 50px;
+}
+
+/*Estilo de tarjetas*/
+.container-general{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    padding: 5px;
+    gap: 20px;
+    width:100%;
+}
+
+.container-cards {
+    background-color: #F5F5F5;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-cards img{
+    height: 500px;
+    object-fit: cover;
+    width: 100%;
+    margin: 0;
+}
+
+.container-cards {
+    font-style: bold;
+}
+
+container {
+    width: 100%;
+}

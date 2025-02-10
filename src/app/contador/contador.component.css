@@ -1,0 +1,33 @@
+img { /*Imagen principal*/
+    width: 750px;
+    height: 550px;
+    border-radius: 10px;
+    image-rendering: smooth;
+    margin-left: 10px;
+}
+
+.boton-imagen {
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: none;
+    padding: 5px;
+    cursor: pointer;
+    margin-right: -15px;
+    margin-left: 150px;
+    width: 50px;
+}
+
+.boton-imagen img{
+    width: 80px;
+    height: 60px;
+    margin-top: 5%;
+}
+
+.estancias-container {
+    width: 100%;
+    justify-content: center;
+    height: 100%;
+    padding: 80px 80px 80px 80px;
+}
+

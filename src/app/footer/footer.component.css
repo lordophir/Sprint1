@@ -1,0 +1,32 @@
+.footer-content {
+    background-color: black;
+    color: aliceblue;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    display: flex;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+button {
+    margin-left: 50px;
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+

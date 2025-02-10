@@ -1,0 +1,47 @@
+<section class="reservas-container">
+    <!-- HUÉSPEDES -->
+    <div class="reservas-form">
+        <label for="huespedes">
+            <span>HUÉSPEDES</span>
+        </label>
+        <div class="controles">
+            <button (click)="decreaseGuests()">-</button>
+            <input type="text" id="guests" [value]="guests" readonly /> <!--Investigar esto-->
+            <button (click)="increaseGuests()">+</button>
+        </div>
+    </div>
+
+    <!-- NOCHES -->
+    <div class="reservas-form">
+        <label for="noches">
+            <span>NOCHES</span>
+        </label>
+        <div class="controles">
+            <button (click)="decreaseNights()">-</button>
+            <input type="text" id="nights" [value]="nights" readonly />
+            <button (click)="increaseNights()">+</button>
+        </div>
+    </div>
+
+    <!-- EXTRAS -->
+    <div class="extras">
+        <h3>EXTRAS</h3>
+        <div *ngFor="let extra of extras">
+            <label>
+                <input type="checkbox" (change)="updateSelectedExtras($event, extra)" />
+                {{ " + " + extra.name + " " + formatCurrency(extra.price) }}
+            </label>
+        </div>
+    </div>
+
+    <!-- TOTAL -->
+    <div class="total">
+        <h4>TOTAL CON IMPUESTOS</h4>
+        <span>{{ formatCurrency(total) }}</span>
+    </div>
+
+    <!-- BOTÓN RESERVAR -->
+    <div class="button-container">
+        <button class="reserve-button">Reservar</button>
+    </div>
+</section>
