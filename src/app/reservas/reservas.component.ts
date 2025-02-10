@@ -10,74 +10,57 @@ import { CommonModule } from '@angular/common';
 export class ReservasComponent {
   // Declaración de número de huéspedes y noches
 
-guests: number = 1;
-nights: number = 1;
+  guests: number = 1;
+  nights: number = 1;
 
-// 
-basePrice: number = 1500;
+  // 
+  basePrice: number = 1500;
 
-// Opciones de extras con sus precios
-extras = [
-{ name: 'MASCOTA', price: 250 },
-{ name: 'CALEFACCIÓN', price: 500 },
-{ name: 'RUTA DE MONTAÑA', price: 150 },
-{ name: 'SENDERISMO', price: 200 },
-{ name: 'VISTA A LA CASCADA', price: 50 }
-];
+  // Opciones de extras con sus precios
+  extras = [{ name: 'MASCOTA', price: 250 },{ name: 'CALEFACCIÓN', price: 500 },{ name: 'RUTA DE MONTAÑA', price: 150 },{ name: 'SENDERISMO', price: 200 },{ name: 'VISTA A LA CASCADA', price: 50 }];
 
- // Lista de extras seleccionados por el usuario
- selectedExtras: { name: string; price: number }[] = [];
+  SeleccionarExtras: { name: string; price: number }[] = []; //Aquí se declara el método para los extras
 
- // Getter para calcular el total dinámicamente
- get total(): number {
-  // Suma los precios de los extras seleccionados
-  const extrasTotal = this.selectedExtras.reduce((sum, extra) => sum + extra.price, 0);
+  get total(): number { //Permite que una propiedad se comporte como una variable
+    
+    const extrasTotal = this.SeleccionarExtras.reduce((sum, extra) => sum + extra.price, 0); // Esto es un arreglo
+ 
+    const guestsTotal = (this.guests - 1) * 500; //Costo adicional por huesped
 
-  // Calcula el costo adicional por huéspedes 
-  const guestsTotal = (this.guests - 1) * 500;
+    const nightsTotal = (this.nights - 1) * 1000; // Costo adicional por noche
 
-  // Calcula el costo adicional por noches
-  const nightsTotal = (this.nights - 1) * 1000;
-
-  // Retorna la suma del precio base, extras y costos adicionales
-  return this.basePrice + extrasTotal + guestsTotal + nightsTotal;
-}
-
-// Formatea un valor numérico como moneda (MXN)
-  formatCurrency(value: number): string {
-    return `$${value.toFixed(2)} MXN`;
+    return this.basePrice + extrasTotal + guestsTotal + nightsTotal; //Sumatoria total
   }
 
-  // Incrementa el número de huéspedes
-  increaseGuests(): void {
+  formato(value: number): string { //Formatea el valor
+    return `$${value.toFixed(2)} MXN`; //Número de decimales
+  }
+
+  incrementoHuespedes(): void { //Sumatoria de húespedes
     this.guests++;
   }
 
-  // Decrementa el número de huéspedes (mínimo 1)
-  decreaseGuests(): void {
+  restaHuespedes(): void { //Resta número de húespedes
     if (this.guests > 1) this.guests--;
   }
 
-  // Incrementa el número de noches
-  increaseNights(): void {
+  incrementoNoches(): void { //Suma las noches
     this.nights++;
   }
 
-  // Decrementa el número de noches (mínimo 1)
-  decreaseNights(): void {
+  restaNoches(): void { //Resta las noches
     if (this.nights > 1) this.nights--;
   }
 
-  // Actualiza la lista de extras seleccionados al interactuar con los checkboxes
-  updateSelectedExtras(event: Event, extra: { name: string; price: number }): void {
+  extrasSeleccionados(event: Event, extra: { name: string; price: number }): void { //Actualiza los extras cuando se presiona un checkbox
     const checkbox = event.target as HTMLInputElement;
 
-    // Si el checkbox está marcado, añade el extra a la lista de seleccionados
+    // Compara los checkbox
     if (checkbox.checked) {
-      this.selectedExtras.push(extra);
+      this.SeleccionarExtras.push(extra);
     } else {
-      // Si el checkbox está desmarcado, elimina el extra de la lista de seleccionados
-      this.selectedExtras = this.selectedExtras.filter(e => e.name !== extra.name);
+    // Sino está pulsado elimina los extras
+      this.SeleccionarExtras = this.SeleccionarExtras.filter(e => e.name !== extra.name);
     }
   }
 }

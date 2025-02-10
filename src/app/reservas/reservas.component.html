@@ -1,13 +1,14 @@
 <section class="reservas-container">
-    <!-- HUÉSPEDES -->
+    <!-- Controles Huéspedes -->
     <div class="reservas-form">
         <label for="huespedes">
             <span>HUÉSPEDES</span>
         </label>
+        <!--Aquí estoy colocando los botones, en este caso se ría -->
         <div class="controles">
-            <button (click)="decreaseGuests()">-</button>
-            <input type="text" id="guests" [value]="guests" readonly /> <!--Investigar esto-->
-            <button (click)="increaseGuests()">+</button>
+            <button (click)="restaHuespedes()">-</button>
+            <input type="text" id="guests" [value]="guests" readonly /> <!--Solo lectura-->
+            <button (click)="incrementoHuespedes()">+</button>
         </div>
     </div>
 
@@ -17,9 +18,9 @@
             <span>NOCHES</span>
         </label>
         <div class="controles">
-            <button (click)="decreaseNights()">-</button>
+            <button (click)="restaNoches()">-</button>
             <input type="text" id="nights" [value]="nights" readonly />
-            <button (click)="increaseNights()">+</button>
+            <button (click)="incrementoNoches()">+</button>
         </div>
     </div>
 
@@ -28,8 +29,8 @@
         <h3>EXTRAS</h3>
         <div *ngFor="let extra of extras">
             <label>
-                <input type="checkbox" (change)="updateSelectedExtras($event, extra)" />
-                {{ " + " + extra.name + " " + formatCurrency(extra.price) }}
+                <input type="checkbox" (change)="extrasSeleccionados($event, extra)" />
+                {{ " + " + extra.name + " " + formato(extra.price) }}
             </label>
         </div>
     </div>
@@ -37,7 +38,7 @@
     <!-- TOTAL -->
     <div class="total">
         <h4>TOTAL CON IMPUESTOS</h4>
-        <span>{{ formatCurrency(total) }}</span>
+        <span>{{ formato(total) }}</span>
     </div>
 
     <!-- BOTÓN RESERVAR -->
